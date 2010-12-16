@@ -1,7 +1,49 @@
 <?php
 class robotxtr extends Plugin
 {
+	
+	 /**
+     * Filter function called by the plugin hook `rewrite_rules`
+     * Add a new rewrite rule to the database's rules.
+     *
+     * Call `robotxtr::act('Robots')` when a request for `robots.txt` is received.
+     *
+     * @param array $db_rules Array of rewrite rules compiled so far
+     * @return array Modified rewrite rules array, we added our custom rewrite rule
+     */
+    public function filter_rewrite_rules( $db_rules )
+    {
+	$db_rules[]= RewriteRule::create_url_rule( '"robots.txt"', 'robotxtr', 'Robots' );
+	return $db_rules;
+    }
+	
 		
+	/**
+    * Act function called by the `Controller` class.
+    * Dispatches the request to the proper action handling function.
+    *
+    * @param string $action Action called by request, we only support 'Sitemap'
+    */
+    public function act( $action )
+    {
+	switch ( $action )
+	{
+	    case 'Robots':
+		self::Robots();
+		break;
+	}
+    }
+
+    public function Robots()
+    {
+    
+    $robots = Options::get('robotxtr__content'); 
+    
+	ob_clean();
+	header( 'Content-Type: text/plain' );
+	print $robots;
+	
+	
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
 		if ( $this->plugin_id() == $plugin_id ) {
