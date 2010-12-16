@@ -42,7 +42,7 @@ class robotxtr extends Plugin
 	ob_clean();
 	header( 'Content-Type: text/plain' );
 	print $robots;
-	
+	}
 	
 	public function filter_plugin_config( $actions, $plugin_id )
 	{
