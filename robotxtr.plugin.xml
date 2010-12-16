@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>robotxtr</name>
+	<version>0.1</version>
+	<url>http://github.com/habarimag/robotxtr</url>
+	<author>HabariMag-Team</author>
+	<authorurl>http://habarimag.de</authorurl>
+	<license>Apache License 2.0</license>
+	<description><![CDATA[soon...]]></description>
+	<copyright>2010</copyright>
+	
+	<help>
+		<value><![CDATA[
+			Coming Soon …
+	]]></value>
+	</help>
+</pluggable>
+ 
